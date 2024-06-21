@@ -16,3 +16,16 @@ export const deleteStudent = async (studentId) => {
   const student = await StudentsCollection.findOneAndDelete({ _id: studentId });
   return student;
 };
+
+export const updateStudebt = async (studentId, payload, options = {}) => {
+  const rawResult = await StudentsCollection.findOneAndUpdate(
+    { _id: studentId },
+    payload,
+    {
+      new: true,
+      includeResultMetadata: true,
+      ...options,
+    },
+  );
+  if (!rawResult || !rawResult.vakue) return null;
+};

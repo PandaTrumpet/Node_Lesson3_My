@@ -1,6 +1,7 @@
 import { getAllStudents, getStudentById } from '../service/students.js';
 import { createStudent } from '../service/students.js';
 import { deleteStudent } from '../service/students.js';
+import { updateStudebt } from '../service/students.js';
 export const getStudentsController = async (req, res, next) => {
   try {
     const students = await getAllStudents();
@@ -49,3 +50,8 @@ export const deleteStudentController = async (req, res, next) => {
   }
   res.status(202).send();
 };
+
+export const upsertStudentController = async (req, res) => {
+  const { studentId } = req.params;
+};
+export const
